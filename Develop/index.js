@@ -18,11 +18,6 @@ const questions = [
       },
       {
         type: 'input',
-        message: 'Table of Contents.',
-        name: 'toc',
-      },
-      {
-        type: 'input',
         message: 'Provide the installation instructions. What must be downloaded?',
         name: 'installation',
       },
@@ -56,8 +51,8 @@ const questions = [
         message: 'What is your email address?',
         name: 'email',
       },
-];
- 
+]
+    `
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
  
