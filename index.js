@@ -38,9 +38,10 @@ const questions = [
         name: 'test',
       },
       {
-        type: 'input',
+        type: 'list',
         message: 'What license are you using?',
         name: 'license',
+        choices: ["MIT","APACHE 2.0","GPL 3.0","BSD 3","None"]
       },
       {
         type: 'input',
