@@ -1,26 +1,52 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  let licenseLink;
+  switch(license) {
+    case "MIT":
+      licenseLink = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+      return licenseLink
+    case "APACHE 2.0":
+      licenseLink = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+      return licenseLink
+    default:
+      licenseLink = "None"
+      return licenseLink
+    }
   if(license == "MIT"){
-    license = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)]"
+    licenseLink = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)]"
   }else if (license == "APACHE 2.O"){
-    license = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)]"
+    licenseLink = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)]"
   }else if (license == "GPL 3.0"){
-    license = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)]"
+    licenseLink = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)]"
   }else if(license == "BSD 3"){
-    license = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)]"
+    licenseLink = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)]"
   }else {
-    license = "None"
+    licenseLink = "None"
   }
+  return licenseLink
 }
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+ if(license !== "None") {
+   return `\n* [License](#license)\n`
+ }
+ return '';
+}
  
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if(license !== "None") {
+    return `## License
+    
+    This project is licensed under the ${license} license.`
+  }
+  return "";
+}
 
 
 
@@ -39,7 +65,7 @@ function generateMarkdown(data) {
 
  [Usage](#usage)
 
- [License](#license)
+ ${data.license !== "None" ? '[License](#license)' : ''}
  
  [Contributing](#contributing)
 
@@ -58,7 +84,7 @@ To use this app, ${data.usage}.
 ## License
 The license for this project is ${data.license}.
 
-${renderLicenseBadge(license)}
+${renderLicenseBadge(data.license)}
 
 ## Contributing
 Contributors: ${data.contributors}
