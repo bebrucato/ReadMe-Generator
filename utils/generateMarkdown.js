@@ -22,8 +22,7 @@ function renderLicenseBadge(license) {
   
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-return `
-# ${data.title}
+return `# ${data.title}
 
 ## Description
   ${data.description}
@@ -41,7 +40,11 @@ return `
 
  [Screenshots](#screenshots)
 
+ [GitHub Repository](#repository)
+
  [Questions](#questions)
+
+
 
 ## Installation
 You must download these items, ${data.installation} to use this app.
@@ -59,12 +62,15 @@ Contributors: ${data.contributors}
 ## Test
 In order to run the test, you must ${data.test}.
 
-[Demo Video]()
+[Demo](https://youtu.be/W-cbAN01tP8)
 
 ## Screenshots
-[Command Line]()
+[Command Line](screenshots/command-line.png)
 
-[Generated ReadMe]()
+[Generated ReadMe](screenshots/read.png)
+
+## Repository
+[GitHub Repository URL](https://github.com/bebrucato/ReadMe-Generator)
 
 ## Questions
 If you have any further questions about this application, feel free to 
